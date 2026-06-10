@@ -25,7 +25,7 @@ VALIDATE() {
         echo -e "$TIMESTAMP [ERROR] $2 $R failed $N"
         exit 1
     else
-        echo -e "$TIMESTAMP [INFO] $2 $G successfully $N"
+        echo -e "$TIMESTAMP [INFO] $2 $G success $N"
     fi
 
 }
@@ -33,6 +33,11 @@ VALIDATE() {
 #MONGO DB
 cp mongo.repo /etc/yum.repos.d/mongo.repo 
 VALIDATE  $? "Adding Mongo repo"
+
+#installing mongo db
+dnf install mongodb-org -y 
+VALIDATE $? "Installing Mongodb"
+
 
 
    
