@@ -11,6 +11,7 @@ P="\e[35m"
 B="\e[34m"
 N="\e[0m"
 TIMESTAMP=$(date "+%Y-%m-%d +%H:%M:%S")
+echo " hello world"
 
 #root access
 USERID=$(id -u)
