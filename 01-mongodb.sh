@@ -11,7 +11,6 @@ P="\e[35m"
 B="\e[34m"
 N="\e[0m"
 TIMESTAMP=$(date "+%Y-%m-%d +%H:%M:%S")
-echo " hello world"
 
 #root access
 USERID=$(id -u)
@@ -36,7 +35,7 @@ cp mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE  $? "Adding Mongo repo"
 
 #installing mongo db
-dnf install mongodb-org -y 
+dnf install mongodb-org -y  &>> $LOG_FILE
 VALIDATE $? "Installing Mongodb"
 
 
