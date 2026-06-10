@@ -1,15 +1,15 @@
 #!/bib/bash
-LOGS_FOLDER= "/var/log/roboshop"
+LOGS_FOLDER="/var/log/roboshop"
 sudo mkdir -p $LOGS_FOLDER
 sudo chown -R ec2-user:ec2-user $LOGS_FOLDER
 sudo chmod -R 755 $LOGS_FOLDER
 LOG_FILE="$LOGS_FOLDER/$0.log"
-R=\e[31m
-G=\e[32m
-Y=\e[33m
-P=\e[35m
-B=\e[34m]
-N=\e[0m
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+P="\e[35m"
+B="\e[34m"
+N="\e[0m"
 TIMESTAMP=$(date "+%Y-%m-%d +%H:%M:%S")
 
 #root access
