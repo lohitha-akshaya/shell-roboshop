@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 LOGS_FOLDER="/var/log/roboshop"
 sudo mkdir -p $LOGS_FOLDER
