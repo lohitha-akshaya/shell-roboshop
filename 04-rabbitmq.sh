@@ -35,7 +35,7 @@ VALIDATE() {
 cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo
 VALIDATE $? "Adding rabbitmq repo"
 
-#Installing rabbitmq
+#installing rabbitmq
 dnf install rabbitmq-server -y  &>> $LOG_FILE
 VALIDATE $? "Installing rabbitmq"
 
