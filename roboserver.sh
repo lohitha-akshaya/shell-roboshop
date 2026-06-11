@@ -7,7 +7,7 @@ DOMAIN_NAME="lohithadev.online"
 for instance in $@
 do 
     echo "Launching instance:$instance"
-    INSTANCE_ID=$(aws ec2 rub-instances  \
+    INSTANCE_ID=$(aws ec2 run-instances  \
         --image-id $AMI_ID \
         --instance-type t3.micro \
         --security-groups "roboshop-commmon" "roboshop-$instance"  \
