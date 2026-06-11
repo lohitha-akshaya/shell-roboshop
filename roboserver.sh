@@ -13,7 +13,8 @@ do
         --security-groups "roboshop-common"  \
         --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value="$instance"}]" \
         --query "Instances[0].InstanceId" \
-        --output text)
+        --output text
+    )
 
     echo "Instance ID : $INSTANCE_ID"
 done
