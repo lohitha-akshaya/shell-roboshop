@@ -36,7 +36,7 @@ cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo
 VALIDATE $? "Adding rabbitmq repo"
 
 #Installing rabbitmq
-dnf install rabbitmq-server -y &>> $LOG_FILE
+dnf install rabbitmq-server -y  &>> $LOG_FILE
 VALIDATE $? "Installing rabbitmq"
 
 #Enabling and starting rabbitmq
