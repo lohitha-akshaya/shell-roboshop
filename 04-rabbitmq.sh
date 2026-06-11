@@ -36,12 +36,13 @@ cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo
 VALIDATE $? "Adding rabbitmq repo"
 
 #Installing rabbitmq
-dnf install rabbitmq-server -y  &>> $LOG_FILE
+dnf install rabbitmq-server -y &>> $LOG_FILE
+VALIDATE $? "Installing rabbitmq"
 
 #Enabling and starting rabbitmq
 systemctl enable rabbitmq-server
 systemctl start rabbitmq-server
-VALIDATE $? "Installing and starting rabbitmq"
+VALIDATE $? "Enabling and starting rabbitmq"
 
 #Adding application user and permissions
 rabbitmqctl add_user roboshop roboshop123
