@@ -41,7 +41,9 @@ dnf install rabbitmq-server -y  &>> $LOG_FILE
 #Enabling and starting rabbitmq
 systemctl enable rabbitmq-server
 systemctl start rabbitmq-server
+VALIDATE $? "Installing and starting rabbitmq"
 
 #Adding application user and permissions
 rabbitmqctl add_user roboshop roboshop123
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+VALIDATE $? "Adding application user and permissions"
