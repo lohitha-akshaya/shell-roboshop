@@ -13,7 +13,8 @@ do
         --security-groups roboshop-common roboshop-$instance \
         --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value="$instance"}]" \
         --query "Instances[0].InstanceId" \
-        --output text)
+        --output text
+        )
 
     echo "Instance ID : $INSTANCE_ID"
 
@@ -33,7 +34,7 @@ do
        R53_RECORD="$instance.$DOMAIN_NAME"
     fi
 
-    #  updating R53 Record 
+    #updating R53 Record 
      aws route53 change-resource-record-sets \
         --hosted-zone-id $ZONE_ID \
         --change-batch '
