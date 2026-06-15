@@ -35,10 +35,10 @@ VALIDATE $? "Installing NodeJS:20"
 
 id roboshop &>>$LOGS_FILE
 if [ $? -ne 0 ]; then
-    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system cart" roboshop &>>$LOGS_FILE
+    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOGS_FILE
     VALIDATE $? "Creating roboshop system user"
 else
-    echo -e "System cart roboshop already created ... $Y SKIPPING $N"
+    echo -e "System user roboshop already created ... $Y SKIPPING $N"
 fi
 
 rm -rf /app
@@ -62,5 +62,5 @@ cp $SCRIPT_DIR/cart.service /etc/systemd/system/cart.service
 VALIDATE $? "Created systemctl service"
 
 systemctl enable cart &>>$LOGS_FILE
-systemctl restart cart  &>>$LOGS_FILE
+systemctl restart cart &>>$LOGS_FILE
 VALIDATE $? "Restarting cart"

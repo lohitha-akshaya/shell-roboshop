@@ -1,4 +1,4 @@
-# #!/bin/bash
+#!/bin/bash
 
 LOGS_FOLDER="/var/log/roboshop"
 sudo mkdir -p $LOGS_FOLDER
@@ -62,5 +62,5 @@ cp $SCRIPT_DIR/user.service /etc/systemd/system/user.service
 VALIDATE $? "Created systemctl service"
 
 systemctl enable user &>>$LOGS_FILE
-systemctl restart user  &>>$LOGS_FILE
+systemctl restart user &>>$LOGS_FILE
 VALIDATE $? "Restarting user"
