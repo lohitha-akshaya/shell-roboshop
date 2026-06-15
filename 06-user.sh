@@ -41,6 +41,7 @@ else
     echo -e "System user roboshop already created ... $Y SKIPPING $N"
 fi
 
+
 rm -rf /app
 VALIDATE $? "Removing existing code"
 
