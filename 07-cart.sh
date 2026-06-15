@@ -1,4 +1,4 @@
-# #!/bin/bash
+#!/bin/bash
 
 LOGS_FOLDER="/var/log/roboshop"
 sudo mkdir -p $LOGS_FOLDER
@@ -35,32 +35,32 @@ VALIDATE $? "Installing NodeJS:20"
 
 id roboshop &>>$LOGS_FILE
 if [ $? -ne 0 ]; then
-    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOGS_FILE
+    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system cart" roboshop &>>$LOGS_FILE
     VALIDATE $? "Creating roboshop system user"
 else
-    echo -e "System user roboshop already created ... $Y SKIPPING $N"
+    echo -e "System cart roboshop already created ... $Y SKIPPING $N"
 fi
 
 rm -rf /app
 VALIDATE $? "Removing existing code"
 
-rm -rf /tmp/user.zip
-VALIDATE $? "Removed user zip"
+rm -rf /tmp/cart.zip
+VALIDATE $? "Removed cart zip"
 
 mkdir -p /app  &>>$LOGS_FILE
 VALIDATE $? "Creating app directory"
 
-curl -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip  &>>$LOGS_FILE
+curl -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip  &>>$LOGS_FILE
 cd /app 
-unzip /tmp/user.zip &>>$LOGS_FILE
-VALIDATE $? "Downloaded and extracted user code"
+unzip /tmp/cart.zip &>>$LOGS_FILE
+VALIDATE $? "Downloaded and extracted cart code"
 
 npm install  &>>$LOGS_FILE
 VALIDATE $? "Installing dependencies"
 
-cp $SCRIPT_DIR/user.service /etc/systemd/system/user.service
+cp $SCRIPT_DIR/cart.service /etc/systemd/system/cart.service
 VALIDATE $? "Created systemctl service"
 
-systemctl enable user &>>$LOGS_FILE
-systemctl restart user  &>>$LOGS_FILE
-VALIDATE $? "Restarting user"
+systemctl enable cart &>>$LOGS_FILE
+systemctl restart cart  &>>$LOGS_FILE
+VALIDATE $? "Restarting cart"
