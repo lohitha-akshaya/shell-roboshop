@@ -36,7 +36,7 @@ for instance in $@
 do 
    INSTANCE_ID=$(get_instance_id $instance)
     if [ "$Action" == "create" ]; then
-        if [ "$INSTANCE_ID" =="None"]; then
+        if [ "$INSTANCE_ID" == "None"]; then
             echo -e "$TIMESTAMP:: $G Launching instance:roboshop-$instance $N"
             INSTANCE_ID=$(aws ec2 run-instances \
                 --image-id $AMI_ID \
