@@ -5,8 +5,8 @@ state=$(aws ec2 describe-instances \
     --output text)
 
 echo "$state"
-if [ $state = stopped ]; then 
-  echo "$instance_id is stopped"
-fi
+  if [ "$state" = "stopped" ]; then
+    echo "$instance_id is stopped"
+  fi
 
 
